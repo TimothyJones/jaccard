@@ -54,5 +54,10 @@ func main() {
   union := s1.Union(s2)
   intersection := s1.Intersect(s2)
 
-  fmt.Println(float64(intersection.Cardinality()) / float64(union.Cardinality()))
+  if union.Cardinality() == 0 {
+    // The Jaccard coefficient for two empty sets is defined to be 1
+    fmt.Println(1)
+  } else {
+    fmt.Println(float64(intersection.Cardinality()) / float64(union.Cardinality()))
+  }
 }
